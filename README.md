@@ -12,3 +12,4 @@ This is a collection of few most used android functions in projects.
   - Image Util (image resize)
   - Ui Util (hide soft keyboard)
   - Un-Swippable viewpager.
+  - Conversion Util (method to convert dp to px)
