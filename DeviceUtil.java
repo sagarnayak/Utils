@@ -16,4 +16,16 @@ public class DeviceUtil {
                 Settings.Secure.ANDROID_ID);
     }
 
+    public static String getVersionName(Context context) {
+        PackageInfo pinfo = null;
+        try {
+            pinfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        int versionNumber = pinfo.versionCode;
+        //noinspection UnnecessaryLocalVariable
+        String versionName = pinfo.versionName;
+        return versionName;
+    }
 }
