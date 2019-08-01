@@ -1,49 +1,45 @@
 package <YOUR PACKAGE HERE>;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
+import android.app.Activity
+import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
+
 
 /**
  * created by SAGAR KUMAR NAYAK
  * util class to perform any kind of UI operations
- * <p>
+ *
+ *
  * exposed methods
- * {@link #hideSoftKeyboard(Context)}
- * {@link #hideSoftKeyboardAtStart(Context)}
+ * [.hideSoftKeyboard]
+ * [.hideSoftKeyboardAtStart]
  */
-@SuppressWarnings("ALL")
-public class UiUtil {
+@Suppress("unused")
+object UiUtil {
 
     /**
      * method to hide the soft keyboard
      *
      * @param context context
      */
-    @SuppressWarnings({"unused", "SameParameterValue", "WeakerAccess"})
-    public static void hideSoftKeyboard(Context context) {
-        View view = ((Activity) context).getCurrentFocus();
+    fun hideSoftKeyboard(context: Context) {
+        val view = (context as Activity).currentFocus
         if (view != null) {
-            InputMethodManager imm =
-                    (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (imm == null)
-                return;
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            val imm = context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
 
     /**
      * method to set the activity to not to show the soft keyboard at activity start.
-     * to use this method call it before {@link Activity#setContentView(int)} in Activity
+     * to use this method call it before [Activity.setContentView] in Activity
      *
      * @param context context
      */
-    @SuppressWarnings({"unused", "SameParameterValue", "WeakerAccess"})
-    public static void hideSoftKeyboardAtStart(Context context) {
-        ((Activity) context).getWindow().setSoftInputMode(WindowManager.
-                LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+    fun hideSoftKeyboardAtStart(context: Context) {
+        (context as Activity).window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
     }
 
     /**
@@ -52,9 +48,8 @@ public class UiUtil {
      *
      * @param context activity context
      */
-    @SuppressWarnings({"unused", "SameParameterValue", "WeakerAccess"})
-    public static void DoNotAllowForSleep(Context context) {
-        ((Activity) context).getWindow()
-                .addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    fun doNotAllowForSleep(context: Context) {
+        (context as Activity).window
+            .addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 }
