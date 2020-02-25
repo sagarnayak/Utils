@@ -1,32 +1,18 @@
 package <YOUR PACKAGE HERE>;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.content.Context
+import android.net.ConnectivityManager
 
-/**
- * created by SAGAR KUMAR NAYAK
- * class to perform any network operations,
- * <p>
- * exposed methods
- * {@link #isNetworkAvailable(Context)}
- */
-@SuppressWarnings("unused")
-public class NetworkUtil {
+object NetworkUtil {
 
-    /**
-     * method to check if the device is connected to internet
-     *
-     * @param context context
-     * @return true if device connected to internet, false otherwise
-     */
-    @SuppressWarnings({"unused", "SameParameterValue", "WeakerAccess"})
-    public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager =
-                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivityManager == null)
-            return false;
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    fun isConnected(context: Context): Boolean {
+        val connectivityManager: ConnectivityManager? =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        connectivityManager?.let {
+            val networkInfo = connectivityManager.activeNetworkInfo
+            networkInfo?.let { return networkInfo.isConnected } ?: run { return false }
+        } ?: run {
+            return false
+        }
     }
 }

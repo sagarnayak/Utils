@@ -1,4 +1,4 @@
-package com.collanomics.android.catchthemyoung.student.catchthemyoung.util.network;
+package <YOUR PACKAGE HERE>;
 
 /*
 created by Sagar Kumar Nayak

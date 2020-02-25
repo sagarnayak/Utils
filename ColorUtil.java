@@ -1,4 +1,4 @@
-package com.collanomics.android.catchthemyoungstudent.util;
+package <YOUR PACKAGE HERE>;
 
 import android.graphics.Color;
 

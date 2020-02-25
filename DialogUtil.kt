@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package <YOUR PACKAGE HERE>;
 
 import android.app.Dialog
