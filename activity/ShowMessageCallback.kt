@@ -1,7 +1,6 @@
 package <YOUR PACKAGE HERE>;
 
 import android.graphics.drawable.Drawable
-import com.met.atims.util.DialogUtil
 
 @Suppress("unused")
 interface ShowMessageCallback {

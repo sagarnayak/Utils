@@ -8,7 +8,6 @@ import android.view.Window
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import com.met.atims.R
 
 
 @Suppress("SENSELESS_COMPARISON")

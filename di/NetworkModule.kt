@@ -1,14 +1,15 @@
 package <YOUR PACKAGE HERE>;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import com.met.atims.core.KeyWordsAndConstants.BASE_URL
-import com.met.atims.repository.retrofit.ApiInterface
 import com.sagar.android.logutilmaster.LogUtil
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/*
+this file can be put into a seperate di package instead of keeping in util
+*/
 class NetworkModule(logUtil: LogUtil) {
 
     var apiInterface: ApiInterface

@@ -3,7 +3,6 @@
 package <YOUR PACKAGE HERE>;
 
 import androidx.lifecycle.ViewModel
-import com.met.atims.repository.Repository
 
 open class SuperViewModel(private val repository: Repository) : ViewModel() {
 

@@ -3,7 +3,6 @@ package <YOUR PACKAGE HERE>;
 import android.app.Dialog
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
-import com.met.atims.R
 
 
 class ProgressUtil(private val context: Context) {

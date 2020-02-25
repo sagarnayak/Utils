@@ -1,6 +1,5 @@
 package <YOUR PACKAGE HERE>;
 
-import com.collanomics.android.catchthemyoung.student.catchthemyoung.util.network.Const;
 import com.sagar.android.logutilmaster.LogUtil;
 
 import java.io.IOException;

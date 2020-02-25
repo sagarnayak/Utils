@@ -11,10 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.met.atims.util.DialogUtil
-import com.met.atims.util.NetworkUtil
-import com.met.atims.util.ProgressUtil
-import com.met.atims.util.model.Result
 
 @Suppress("unused")
 @SuppressLint("Registered")
