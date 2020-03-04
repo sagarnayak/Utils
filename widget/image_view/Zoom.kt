@@ -57,9 +57,11 @@ class Zoom(imageView: ImageView) {
         when (imageView.imageLoadedVia) {
             ImageView.ImageLoadedVia.DRAWABLE -> {
                 binding.imageView.setImageDrawable(imageView.imageDrawable)
+                performInitialZoom()
             }
             ImageView.ImageLoadedVia.BITMAP -> {
                 binding.imageView.setImageBitmap(imageView.imageBitmap)
+                performInitialZoom()
             }
             ImageView.ImageLoadedVia.URL -> {
                 imageView.setImage(
@@ -69,10 +71,7 @@ class Zoom(imageView: ImageView) {
                         override fun onSuccess() {
                             Handler().postDelayed(
                                 {
-                                    binding.zoomLayout.zoomTo(
-                                        2F,
-                                        true
-                                    )
+                                    performInitialZoom()
                                 },
                                 500
                             )
@@ -97,6 +96,18 @@ class Zoom(imageView: ImageView) {
         Handler().postDelayed(
             {
                 dialog.dismiss()
+            },
+            500
+        )
+    }
+
+    private fun performInitialZoom() {
+        Handler().postDelayed(
+            {
+                binding.zoomLayout.zoomTo(
+                    2F,
+                    true
+                )
             },
             500
         )
