@@ -75,7 +75,8 @@ class ImageView @JvmOverloads constructor(
 
     lateinit var contextForLaterUse: Context
     lateinit var binding: CustomImageViewBinding
-    private var mode: Mode = Mode.DOWNLOAD
+    private var mode: Mode =
+        Mode.DOWNLOAD
     var scaleType: ImageView.ScaleType = ImageView.ScaleType.CENTER_CROP
     private var identifier: String = ""
 
@@ -87,7 +88,7 @@ class ImageView @JvmOverloads constructor(
     private val imageViewDoubleClickListener: OnClickListener = DoubleClickListener(
         callback = object : DoubleClickListener.Callback {
             override fun doubleClicked() {
-                changeZoomOfImage()
+                Zoom(this@ImageView)
             }
         }
     )
@@ -161,7 +162,7 @@ class ImageView @JvmOverloads constructor(
         initiate()
     }
 
-    private fun configureZoom(zoomEnabled: ZoomEnabled) {
+    fun configureZoom(zoomEnabled: ZoomEnabled) {
         if (zoomEnabled == ZoomEnabled.YES) {
             binding.imageView.setOnClickListener(imageViewDoubleClickListener)
         } else {
@@ -227,7 +228,8 @@ class ImageView @JvmOverloads constructor(
         )
         doneLoadingImage()
 
-        imageLoadedVia = ImageLoadedVia.BITMAP
+        imageLoadedVia =
+            ImageLoadedVia.BITMAP
         imageBitmap = scaledBitmap
     }
 
@@ -240,7 +242,8 @@ class ImageView @JvmOverloads constructor(
         picassoCallback: Callback? = null
     ) {
         this.imageUrl = imageUrl
-        imageLoadedVia = ImageLoadedVia.URL
+        imageLoadedVia =
+            ImageLoadedVia.URL
 
         mode = Mode.DOWNLOAD
         initiate()
@@ -308,7 +311,8 @@ class ImageView @JvmOverloads constructor(
 
     fun setImage(imageDrawable: Drawable) {
         this.imageDrawable = imageDrawable
-        imageLoadedVia = ImageLoadedVia.DRAWABLE
+        imageLoadedVia =
+            ImageLoadedVia.DRAWABLE
         mode = Mode.DOWNLOAD
         initiate()
         binding.imageView.scaleType = scaleType
@@ -415,9 +419,5 @@ class ImageView @JvmOverloads constructor(
                 identifier
             )
         )
-    }
-
-    private fun changeZoomOfImage() {
-        Zoom(this)
     }
 }
