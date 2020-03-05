@@ -24,16 +24,13 @@ class DoubleClickListener(
         }
     }
 
-    private fun getTimeDiff(from: Long, to: Long): Long {
-        return to - from
-    }
+    private fun getTimeDiff(from: Long, to: Long) = to - from
 
-    private fun isDoubleClicked(): Boolean {
-        return getTimeDiff(
+    private fun isDoubleClicked() =
+        getTimeDiff(
             lastClicked,
             System.currentTimeMillis()
         ) <= doubleClickTimeLimitMills
-    }
 
     interface Callback {
         fun doubleClicked()
